@@ -1,0 +1,15 @@
+{
+  "name": "outfit-colour-matcher",
+  "version": "1.0.0",
+  "description": "A Node.js server for outfit color matching",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

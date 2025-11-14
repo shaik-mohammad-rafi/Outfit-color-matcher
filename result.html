@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matching Bottoms 👖</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>🎯 Outfit Match Result</h1>
+
+    {% if top_color %}
+        <h2>Top Color You Entered: <span style="color: {{ top_color }}">{{ top_color }}</span></h2>
+        <div style="width: 100px; height: 100px; background-color: {{ top_color }}; margin: auto; border-radius: 15px;"></div>
+    {% endif %}
+
+    {% if image_urls %}
+        <h2>📸 Uploaded Top Image(s):</h2>
+        {% for img in image_urls %}
+            <img src="{{ url_for('static', filename=img) }}" width="300">
+        {% endfor %}
+    {% endif %}
+
+    <h2>🧵 Recommended Bottom Colors & Shopping Links:</h2>
+    <ul>
+        {% for color in bottom_colors %}
+            <li>
+                <span style="color: {{ color }}">{{ color.title() }}</span> bottoms –
+                {% for site, link in shopping_links[color].items() %}
+                    <a href="{{ link }}" target="_blank">{{ site }}</a>{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br><br>
+    <a href="/" style="font-size: 18px;">🔁 Match another outfit</a>
+</body>
+</html>

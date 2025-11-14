@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Outfit Color Matcher 💫</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>👗 Outfit Color Matcher</h1>
+    <p style="font-size: 20px;">Type your top's color or upload a picture — we'll match it with perfect bottoms!</p>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label for="top_color"><strong>🎨 Enter Top Color:</strong></label><br>
+        <input type="text" name="top_color" placeholder="e.g., red, #ff0000" required><br><br>
+
+        <label for="images"><strong>📸 Or Upload Top Image(s):</strong></label><br>
+        <input type="file" name="images" accept="image/*" multiple><br><br>
+
+        <button type="submit">Get Matching Bottoms 💥</button>
+    </form>
+</body>
+</html>
